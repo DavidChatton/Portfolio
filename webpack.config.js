@@ -24,6 +24,21 @@ module.exports = {
         include: path.resolve(__dirname, 'src'),
         use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
+      {
+        test: /\.(png|jpe?g|gif|webp)$/i,
+        type: 'asset/resource',
+      },
+      {
+        test: /\.pdf$/i,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "[path][name].[hash].[ext]", // option pour le nom de fichier de sortie
+            },
+          },
+        ],
+      },
     ],
   },
 }
