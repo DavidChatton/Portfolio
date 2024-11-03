@@ -40,6 +40,18 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.(mp4|webm|ogg)$/i,  // Ajout de cette règle pour les vidéos
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[hash].[ext]',
+              outputPath: 'videos/', // Chemin où les fichiers vidéos seront placés
+            },
+          },
+        ],
+      },
     ],
   },
 }
