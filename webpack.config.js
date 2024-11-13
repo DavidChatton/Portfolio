@@ -26,8 +26,11 @@ module.exports = {
         use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
       {
-        test: /\.(png|jpe?g|gif|webp)$/i,
+        test: /\.(png|jpe?g|gif|webp|svg)$/i,
         type: 'asset/resource',
+        generator: {
+          filename: 'images/[name][ext]'
+        }
       },
       {
         test: /\.pdf$/i,

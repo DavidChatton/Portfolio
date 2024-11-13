@@ -1,5 +1,7 @@
 import { ContactModal } from '../components/ContactModal.js';
 import { MementoModal } from '../components/modals/MementoModal.js';
+import { TechProjectsModal } from '../components/modals/TechProjectsModal.js';
+import { projectsData } from '../data/projects.js';  // Correct
 
 // Imports des assets
 import mementoVideo from '../../assets/videos/Memento-presentation.mp4';
@@ -47,9 +49,17 @@ export function initializeModals() {
         });
     });
 
-    // Gestionnaire pour l'ouverture et le backdrop
+    // Gestionnaire unifié pour tous les clics
     document.addEventListener('click', (event) => {
-        // Gestion de l'ouverture des modals
+        // Gestion des boutons tech
+        const techButton = event.target.closest('[data-tech]');
+        if (techButton) {
+            const tech = techButton.dataset.tech;
+            showTechProjects(tech);
+            return; // Évite de déclencher les autres gestionnaires
+        }
+
+        // Gestion de l'ouverture des autres modals
         const openTrigger = event.target.closest('[data-modal-open]');
         if (openTrigger) {
             const modalId = openTrigger.getAttribute('data-modal-open');
@@ -59,6 +69,7 @@ export function initializeModals() {
                 document.body.style.overflow = 'hidden';
                 console.log('Modal ouverte:', modalId);
             }
+            return;
         }
 
         // Fermeture en cliquant sur le backdrop
@@ -71,4 +82,40 @@ export function initializeModals() {
             }
         }
     });
+
+    console.log("initializeModals appelée");
+}
+
+export function showTechProjects(tech) {
+    if (!tech) {
+        console.error('Technologie non définie');
+        return;
+    }
+    // Récupérer les projets ou un tableau vide si aucun projet
+    const projects = projectsData[tech] || [];
+    
+    // Supprimer l'ancienne modal si elle existe
+    const existingModal = document.getElementById('tech-projects-modal');
+    if (existingModal) {
+        existingModal.remove();
+    }
+    // Créer et afficher la nouvelle modal
+    const modal = TechProjectsModal(tech, projects);
+    document.body.appendChild(modal);
+    
+    // AJOUT ICI : Gestionnaire d'événements pour le bouton de fermeture
+    const closeButton = modal.querySelector('.close-modal-btn');
+    if (closeButton) {
+        closeButton.addEventListener('click', () => {
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+        });
+    }
+    
+    // Petit délai pour l'animation
+    setTimeout(() => {
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    }, 0);
+    console.log(`Appel de showTechProjects pour la technologie : ${tech}`);
 }

@@ -12,11 +12,11 @@ import macIcon from "../../assets/icones/icon-macos.png";
 
 export function ProjectList() {
   const projectListContainer = document.createElement('div');
-  projectListContainer.className = "relative lg:row-span-1 rounded-lg bg-dark max-lg:rounded-t-[2rem] p-4";
+  projectListContainer.className = "relative lg:row-span-1 rounded-lg bg-dark lg:rounded-[1rem] p-4";
   
   projectListContainer.innerHTML = `
       <div class="max-w-lg mx-auto bg-dark rounded-2xl p-6 overflow-y-auto h-56">
-          <h2 class="text-lg font-bold text-gray-200 mb-6">Mes Projets</h2>
+          <h2 class="text-lg font-bold text-gray-200 mb-6">Mes Derniers Projets</h2>
 
           <!-- Card Memento -->
           <div class="flex items-center mb-4 hover:bg-[#2C2C36] hover:rounded-lg transition-all p-2 cursor-pointer" data-modal-open="modalMemento">
