@@ -18,12 +18,20 @@ export function ProjectList() {
       <div class="max-w-lg mx-auto bg-dark rounded-2xl p-6 overflow-y-auto h-56">
           <h2 class="text-lg font-bold text-gray-200 mb-6">Mes Derniers Projets</h2>
 
-          <!-- Card Memento -->
+          <!-- Memento Project-->
           <div class="flex items-center mb-4 hover:bg-[#2C2C36] hover:rounded-lg transition-all p-2 cursor-pointer" data-modal-open="modalMemento">
               <img src="${mementoIcon}" alt="icone post it" class="w-12 h-12 object-cover rounded-lg mr-4">
               <div>
                   <h3 class="text-white font-semibold">Memento</h3>
                   <p class="text-gray-400 text-sm">Une idée en tête ? Créez, gérez et organisez vos pensées avec Memento.</p>
+              </div>
+          </div>
+           <!-- Super Papy Party Project-->
+          <div class="flex items-center mb-4 hover:bg-[#2C2C36] hover:rounded-lg transition-all p-2 cursor-pointer" data-modal-open="modalSpp">
+              <img src="${papypartyIcon}" alt="icone du jeu Super papi Party" class="w-12 h-12 object-cover rounded-lg mr-4">
+              <div>
+                  <h3 class="text-white font-semibold">Super Papy Party</h3>
+                  <p class="text-gray-400 text-sm">Prêt pour une aventure mortelle ? Guidez Raymond vers sa bien-aimée, où l'échec forge la victoire.</p>
               </div>
           </div>
       </div>

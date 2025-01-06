@@ -33,18 +33,30 @@ export function TechProjectsModal(tech, projects) {
         </div>
     `;
 
-    // Les boutons de projet
-    const projectButtons = modal.querySelectorAll('.project-details-btn');
-    projectButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const projectName = button.dataset.project;
-            modal.classList.add('hidden');
-            const projectModal = document.getElementById(`modal${projectName.charAt(0).toUpperCase() + projectName.slice(1)}`);
-            if (projectModal) {
-                projectModal.classList.remove('hidden');
-            }
-        });
+const projectButtons = modal.querySelectorAll('.project-details-btn');
+projectButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const projectName = button.dataset.project;
+        // Création de l'ID de la modale en fonction du nom du projet
+        let projectModalId;
+        // Gestion spécifique pour Super Papy Party
+        if (projectName.toLowerCase() === 'super papy party') {
+            projectModalId = 'modalSpp';
+        } else {
+            // Pour les autres projets, on capitalise la première lettre
+            // Par exemple, "memento" devient "modalMemento"
+            projectModalId = `modal${projectName.charAt(0).toUpperCase() + projectName.slice(1)}`;
+        }
+        // Fermeture de la modale courante
+        modal.classList.add('hidden');
+        
+        // Recherche et ouverture de la modale du projet
+        const projectModal = document.getElementById(projectModalId);
+        if (projectModal) {
+            projectModal.classList.remove('hidden');
+        }
     });
+});
 
     return modal;
 }

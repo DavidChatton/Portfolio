@@ -16,6 +16,8 @@ import tailwindcssIcon from "../../assets/icones/icon-tailwindcss.png";
 import tailwindcssIconColor from "../../assets/icones/icon-tailwindcss-color.png";
 import mysqlIcon from "../../assets/icones/icon-mysql.png";
 import mysqlIconColor from "../../assets/icones/icon-mysql-color.png";
+import gdevelop from "../../assets/icones/gdevelop.png";
+import gdevelop5 from "../../assets/icones/gdevelop5.png";
 
 export function SkillsList () {
   return `
@@ -54,13 +56,19 @@ export function SkillsList () {
           <img src="${tailwindcssIcon}" alt="icone-tailwindcss" class="w-14 h-14">
       </button>
 
+      <button class="group relative bg-zinc-800 p-2 rounded-lg aspect-square flex items-center justify-center" data-tech="GDevelop">
+          <img src="${gdevelop5}" alt="icone-gdevelop5" class="w-14 h-14">
+      </button>
+
       <button class="group relative bg-zinc-800 p-2 rounded-lg aspect-square flex items-center justify-center" data-tech="MySQL">
           <img src="${mysqlIcon}" alt="icone-mysql" class="w-14 h-14">
       </button>
+
+      
     </div>
 
     <!-- Version Desktop -->
-    <div class="hidden lg:flex lg:flex-wrap lg:justify-between lg:gap-4">
+    <div class="hidden lg:flex lg:flex-wrap lg:gap-4 lg:justify-start">
       <button class="group relative bg-zinc-800 p-4 rounded-lg shadow-md text-center w-fit transition-transform transform hover:scale-125 hover:bg-zinc-600 hover:shadow-lg" data-tech="Python">
          <img src="${pythonIcon}" alt="icone-python" class="h-16 mx-auto opacity-100 transition-opacity duration-300 group-hover:opacity-0 absolute inset-0 m-auto">
           <img src="${pythonIconColor}" alt="icone-python" class="h-16 mx-auto opacity-0 transition-opacity duration-300 group-hover:opacity-100">
@@ -113,6 +121,12 @@ export function SkillsList () {
           <img src="${mysqlIcon}" alt="icone-mysql" class="h-16 mx-auto opacity-100 transition-opacity duration-300 group-hover:opacity-0 absolute inset-0 m-auto">
           <img src="${mysqlIconColor}" alt="icone-mysql-color" class="h-16 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
           <span class="absolute left-1/2 transform -translate-x-1/2 bottom-[-0px] text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500">MySql</span>
+      </button>
+
+     <button class="group relative bg-zinc-800 p-4 rounded-lg shadow-md text-center w-fit transition-transform transform hover:scale-125 hover:bg-zinc-500 hover:shadow-lg" data-tech="GDevelop">
+          <img src="${gdevelop}" alt="icone-mysql" class="h-16 mx-auto opacity-100 transition-opacity duration-300 group-hover:opacity-0 absolute inset-0 m-auto">
+          <img src="${gdevelop5}" alt="icone-mysql-color" class="h-16 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+          <span class="absolute left-1/2 transform -translate-x-1/2 bottom-[-0px] text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500">Gdevelop5</span>
       </button>
     </div>
   </div>

@@ -2,17 +2,22 @@ import { ContactModal } from '../components/ContactModal.js';
 import { MementoModal } from '../components/modals/MementoModal.js';
 import { TechProjectsModal } from '../components/modals/TechProjectsModal.js';
 import { projectsData } from '../data/projects.js';  // Correct
+import { SppModal } from '../components/modals/SppModal.js';
 
 // Imports des assets
 import mementoVideo from '../../assets/videos/Memento-presentation.mp4';
 import pmaIcon from '../../assets/icones/pma.png';
 import mampIcon from '../../assets/icones/mamp.png';
 import macIcon from '../../assets/icones/icon-macos.png';
+import windowsIcon from '../../assets/icones/icon-windows-11.png';
 import gitIcon from '../../assets/icones/icon-git.png';
 import githubIcon from '../../assets/icones/github_icon.png';
 import responsivelyappIcon from '../../assets/icones/Responsively-app.png';
 import vscodeIcon from '../../assets/icones/icon-visuel-studio-code.png';
 import browserIcon from '../../assets/icones/icon-browser.png';
+import gdevelopIcon from '../../assets/icones/gdevelop5.png';
+import gamingIcon from '../../assets/icones/icon-gaming.png';
+import itchioIcon from '../../assets/icones/icon-itch-io.png';
 
 export function initializeModals() {
     const modalContainer = document.createElement('div');
@@ -31,10 +36,21 @@ export function initializeModals() {
         responsivelyappIcon,
         vscodeIcon,
         browserIcon
+    })
+    
+    const sppModal = SppModal({
+        gdevelopIcon,
+        pmaIcon,
+        macIcon,
+        windowsIcon,
+        gamingIcon,
+        itchioIcon,
     });
+    ;
 
     modalContainer.appendChild(contactModal);
     modalContainer.appendChild(mementoModal);
+    modalContainer.appendChild(sppModal);
 
     // Gestionnaires d'événements pour les boutons de fermeture
     const closeButtons = modalContainer.querySelectorAll('.close-modal-btn');
@@ -112,7 +128,7 @@ export function showTechProjects(tech) {
         });
     }
     
-    // Petit délai pour l'animation
+    // Délai pour l'animation
     setTimeout(() => {
         modal.classList.remove('hidden');
         document.body.style.overflow = 'hidden';
